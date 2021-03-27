@@ -1,4 +1,14 @@
 
+#load required libaries
+library(dplyr)
+library(ggplot2)
+library(scales)
+library(data.table)
+
+#Read data
+NEI <- readRDS("summarySCC_PM25.rds")
+SCC <- readRDS("Source_Classification_Code.rds")
+
 scc.vehicles <- SCC[grep("Mobile.*Vehicles", SCC$EI.Sector),  ]; # Pattern match mobile vehicles in SCC description
 scc.vehicles.list <- unique(scc.vehicles$SCC); # Create motor vehicle lookup list by SCC
 nei.vehicles <- subset(NEI, SCC %in% scc.vehicles.list); # Filter for motor vehicle sources
