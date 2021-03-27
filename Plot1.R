@@ -23,7 +23,7 @@ annual <- NEI %>% group_by(year) %>%
 pts <- pretty(annual$Annual.Total/1000000);
 yrs <- c(1999,2002,2005,2008)
 
-png(filename='plot1.png')
+png(filename='Plot1.png')
 plot(annual$year, annual$Annual.Total/1000000, type = "l", lwd = 2, axes = FALSE,
      xlab = "Year", 
      ylab = expression("Total Tons of PM2.5 Emissions"), 
