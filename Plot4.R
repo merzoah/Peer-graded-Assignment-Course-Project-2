@@ -1,4 +1,14 @@
 
+#load required libaries
+library(dplyr)
+library(ggplot2)
+library(scales)
+library(data.table)
+
+#Read data
+NEI <- readRDS("summarySCC_PM25.rds")
+SCC <- readRDS("Source_Classification_Code.rds")
+
 scc.coal <- SCC[grep("Fuel Comb.*Coal", SCC$EI.Sector), ];
 scc.coal.list <- unique(scc.coal$SCC);
 nei.coal <- subset(NEI, SCC %in% scc.coal.list);
