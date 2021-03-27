@@ -1,4 +1,14 @@
 
+#load required libaries
+library(dplyr)
+library(ggplot2)
+library(scales)
+library(data.table)
+
+#Read data
+NEI <- readRDS("summarySCC_PM25.rds")
+SCC <- readRDS("Source_Classification_Code.rds")
+
 NEI.baltimore <- NEI %>% 
   filter(fips == "24510") %>% 
   group_by(type, year) %>% 
